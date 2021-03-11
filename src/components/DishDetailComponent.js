@@ -18,7 +18,7 @@ class DishDetail extends Component {
     renderComments(comments) {
         if (comments != null) {
             return comments.map((comment) => {
-                let date = comment.date.slice(0, 10)
+                let date = new Intl.DateTimeFormat('en-NZ', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))
                 return (
                     <div key={comment.id}>
                         <ul className="list-unstyled">
@@ -39,13 +39,15 @@ class DishDetail extends Component {
         const dish = this.props.dish
         if (dish != null) {
             return (
-                <div className="row">
-                    <div className="col-12 col-md-5 m-1">
-                        {this.renderDish(dish)}
-                    </div>
-                    <div className="col-12 col-md-5 m-1">
-                        <h4>Comments</h4>
-                        {this.renderComments(dish.comments)}
+                <div class="container">
+                    <div className="row">
+                        <div className="col-12 col-md-5 m-1">
+                            {this.renderDish(dish)}
+                        </div>
+                        <div className="col-12 col-md-5 m-1">
+                            <h4>Comments</h4>
+                            {this.renderComments(dish.comments)}
+                        </div>
                     </div>
                 </div>
             )

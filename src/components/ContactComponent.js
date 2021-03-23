@@ -51,6 +51,14 @@ class Contact extends Component {
         })
     }
 
+    /*     handleBlur = (event) => {
+            const field = event.target.name
+            this.setState({
+                touched: { ...this.state.touched, [field]: true }
+            })
+            console.log("Current state is: " + JSON.stringify(this.state))
+        } */
+
     validate(firstname, lastname, telnum, email) {
         const errors = {
             firstname: '',

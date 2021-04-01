@@ -25,8 +25,6 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal()
-        console.log("props: " + JSON.stringify(this.props))
-        console.log("DishID: " + this.props.dishId)
         this.props.addComment(this.props.dishId, values.rating, values.fullname, values.comment)
     }
 
@@ -45,7 +43,7 @@ class CommentForm extends Component {
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5</option>
+                                        <option selected>5</option>
                                     </Control.select>
                                 </Col>
                             </Row>

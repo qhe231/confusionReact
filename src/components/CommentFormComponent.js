@@ -14,6 +14,7 @@ class CommentForm extends Component {
         }
 
         this.toggleModal = this.toggleModal.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     toggleModal() {
@@ -23,8 +24,10 @@ class CommentForm extends Component {
     }
 
     handleSubmit(values) {
-        alert(JSON.stringify(values))
-        console.log(JSON.stringify(values))
+        this.toggleModal()
+        console.log("props: " + JSON.stringify(this.props))
+        console.log("DishID: " + this.props.dishId)
+        this.props.addComment(this.props.dishId, values.rating, values.fullname, values.comment)
     }
 
     render() {

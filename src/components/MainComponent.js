@@ -39,7 +39,6 @@ class Main extends Component {
 
     render() {
         const Homepage = () => {
-            { console.log("dish: " + JSON.stringify(this.props.dishes.dishes.filter((dish) => dish.featured)[0])) }
             return (
                 <Home dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
                     dishesLoading={this.props.dishes.isLoading}

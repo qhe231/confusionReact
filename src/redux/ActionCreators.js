@@ -19,22 +19,65 @@ export const fetchDishes = () => (dispatch) => {
         }, 2000) */
 
     return fetch(baseUrl + 'dishes')
+        .then(response => {
+            if (response.ok) {
+                return response
+            } else {
+                let error = new Error('Error ' + response.status + ': ' + response.statusText)
+                error.response = response
+                throw error
+            }
+        }, //get the response which is an error
+            error => {
+                let errmess = new Error(error.message)
+                throw errmess
+            }) //not get the response
         .then(response => response.json())
         .then(dishes => dispatch(addDishes(dishes)))
+        .catch(error => dispatch(dishesFailed(error.message)))
 }
 
 export const fetchComments = () => (dispatch) => {
     return fetch(baseUrl + 'comments')
+        .then(response => {
+            if (response.ok) {
+                return response
+            } else {
+                let error = new Error('Error ' + response.status + ': ' + response.statusText)
+                error.response = response
+                throw error
+            }
+        }, //get the response which is an error
+            error => {
+                let errmess = new Error(error.message)
+                throw errmess
+            }) //not get the response
         .then(response => response.json())
         .then(comments => dispatch(addComments(comments)))
+        .catch(error => dispatch(commentsFailed(error.message)))
 }
 
 export const fetchPromos = () => (dispatch) => {
     dispatch(promosLoading(true))
 
     return fetch(baseUrl + 'promotions')
+        .then(response => {
+            if (response.ok) {
+                return response
+            } else {
+                let error = new Error('Error ' + response.status + ': ' + response.statusText)
+                error.response = response
+                throw error
+            }
+        }, //get the response which is an error
+            error => {
+                let errmess = new Error(error.message)
+                throw errmess
+            }) //not get the response
         .then(response => response.json())
         .then(promos => dispatch(addPromos(promos)))
+        .catch(error => dispatch(promosFailed(error.message)))
+
 }
 
 export const dishesLoading = () => ({

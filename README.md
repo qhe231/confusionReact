@@ -14,6 +14,6 @@ In this course, I have learned to build the website with React in the following 
 
 This is a very handful course, which I enjoyed a lot from learning.
 
-# Potential Improvement
+## Potential Improvement
 The server in this course is a local JSON server, so the website cannot be deployed online yet.
 Maybe an online API will be built to server the website in the future.
